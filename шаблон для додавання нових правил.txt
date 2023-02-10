@@ -1,0 +1,206 @@
+*[name =~ /^_____$/][inside("UA")] {
+  set .pattern_name;
+}
+
+*[name:uk =~ /^_____$/][inside("UA")] {
+  set .pattern_name_uk;
+}
+
+*[old_name =~ /^_____$/][inside("UA")] {
+  set .pattern_old_name;
+}
+
+*[old_name:uk =~ /^_____$/][inside("UA")] {
+  set .pattern_old_name_uk;
+}
+
+*[alt_name =~ /^_____$/][inside("UA")] {
+  set .pattern_alt_name;
+}
+
+*[alt_name:uk =~ /^_____$/][inside("UA")] {
+  set .pattern_alt_name_uk;
+}
+
+*[addr:street =~ /^_____$/][inside("UA")] {
+  set .pattern_addr_street;
+}
+
+*[addr:place =~ /^_____$/][inside("UA")] {
+  set .pattern_addr_place;
+}
+
+
+way[highway][name].pattern_name,
+relation[type="associatedStreet"][name].pattern_name {
+  throwWarning: tr(
+    "{1} — warning_message",
+    "{1.value}"
+  );
+  group: tr(
+    "group_name"
+  );
+  fixAdd: concat(
+    "name=",
+    get(regexp_match("^_____$", tag("name")), part1),
+    get(regexp_match("^_____$", tag("name")), part2),
+    get(regexp_match("^_____$", tag("name")), part3),
+    get(regexp_match("^_____$", tag("name")), part4),
+    get(regexp_match("^_____$", tag("name")), part5),
+    get(regexp_match("^_____$", tag("name")), part6),
+    get(regexp_match("^_____$", tag("name")), part7),
+    get(regexp_match("^_____$", tag("name")), part8)
+  );
+}
+
+way[highway][name:uk].pattern_name_uk,
+relation[type="associatedStreet"][name:uk].pattern_name_uk {
+  throwWarning: tr(
+    "{1} — warning_message",
+    "{1.value}"
+  );
+  group: tr(
+    "group_name"
+  );
+  fixAdd: concat(
+    "name:uk=",
+    get(regexp_match("^_____$", tag("name:uk")), part1),
+    get(regexp_match("^_____$", tag("name:uk")), part2),
+    get(regexp_match("^_____$", tag("name:uk")), part3),
+    get(regexp_match("^_____$", tag("name:uk")), part4),
+    get(regexp_match("^_____$", tag("name:uk")), part5),
+    get(regexp_match("^_____$", tag("name:uk")), part6),
+    get(regexp_match("^_____$", tag("name:uk")), part7),
+    get(regexp_match("^_____$", tag("name:uk")), part8)
+  );
+}
+
+way[highway][old_name].pattern_old_name,
+relation[type="associatedStreet"][old_name].pattern_old_name {
+  throwWarning: tr(
+    "{1} — warning_message",
+    "{1.value}"
+  );
+  group: tr(
+    "group_name"
+  );
+  fixAdd: concat(
+    "old_name=",
+    get(regexp_match("^_____$", tag("old_name")), part1),
+    get(regexp_match("^_____$", tag("old_name")), part2),
+    get(regexp_match("^_____$", tag("old_name")), part3),
+    get(regexp_match("^_____$", tag("old_name")), part4),
+    get(regexp_match("^_____$", tag("old_name")), part5),
+    get(regexp_match("^_____$", tag("old_name")), part6),
+    get(regexp_match("^_____$", tag("old_name")), part7),
+    get(regexp_match("^_____$", tag("old_name")), part8)
+  );
+}
+
+way[highway][old_name:uk].pattern_old_name_uk,
+relation[type="associatedStreet"][old_name:uk].pattern_old_name_uk {
+  throwWarning: tr(
+    "{1} — warning_message",
+    "{1.value}"
+  );
+  group: tr(
+    "group_name"
+  );
+  fixAdd: concat(
+    "old_name:uk=",
+    get(regexp_match("^_____$", tag("old_name:uk")), part1),
+    get(regexp_match("^_____$", tag("old_name:uk")), part2),
+    get(regexp_match("^_____$", tag("old_name:uk")), part3),
+    get(regexp_match("^_____$", tag("old_name:uk")), part4),
+    get(regexp_match("^_____$", tag("old_name:uk")), part5),
+    get(regexp_match("^_____$", tag("old_name:uk")), part6),
+    get(regexp_match("^_____$", tag("old_name:uk")), part7),
+    get(regexp_match("^_____$", tag("old_name:uk")), part8)
+  );
+}
+
+way[highway][alt_name].pattern_alt_name,
+relation[type="associatedStreet"][alt_name].pattern_alt_name {
+  throwWarning: tr(
+    "{1} — warning_message",
+    "{1.value}"
+  );
+  group: tr(
+    "group_name"
+  );
+  fixAdd: concat(
+    "alt_name=",
+    get(regexp_match("^_____$", tag("alt_name")), part1),
+    get(regexp_match("^_____$", tag("alt_name")), part2),
+    get(regexp_match("^_____$", tag("alt_name")), part3),
+    get(regexp_match("^_____$", tag("alt_name")), part4),
+    get(regexp_match("^_____$", tag("alt_name")), part5),
+    get(regexp_match("^_____$", tag("alt_name")), part6),
+    get(regexp_match("^_____$", tag("alt_name")), part7),
+    get(regexp_match("^_____$", tag("alt_name")), part8)
+  );
+}
+
+way[highway][alt_name:uk].pattern_alt_name_uk,
+relation[type="associatedStreet"][alt_name:uk].pattern_alt_name_uk {
+  throwWarning: tr(
+    "{1} — warning_message",
+    "{1.value}"
+  );
+  group: tr(
+    "group_name"
+  );
+  fixAdd: concat(
+    "alt_name:uk=",
+    get(regexp_match("^_____$", tag("alt_name:uk")), part1),
+    get(regexp_match("^_____$", tag("alt_name:uk")), part2),
+    get(regexp_match("^_____$", tag("alt_name:uk")), part3),
+    get(regexp_match("^_____$", tag("alt_name:uk")), part4),
+    get(regexp_match("^_____$", tag("alt_name:uk")), part5),
+    get(regexp_match("^_____$", tag("alt_name:uk")), part6),
+    get(regexp_match("^_____$", tag("alt_name:uk")), part7),
+    get(regexp_match("^_____$", tag("alt_name:uk")), part8)
+  );
+}
+
+*["addr:street"].pattern_addr_street {
+  throwWarning: tr(
+    "{0} — warning_message",
+    "{0.value}"
+  );
+  group: tr(
+    "group_name"
+  );
+  fixAdd: concat(
+    "addr:street=",
+    get(regexp_match("^_____$", tag("addr:street")), part1),
+    get(regexp_match("^_____$", tag("addr:street")), part2),
+    get(regexp_match("^_____$", tag("addr:street")), part3),
+    get(regexp_match("^_____$", tag("addr:street")), part4),
+    get(regexp_match("^_____$", tag("addr:street")), part5),
+    get(regexp_match("^_____$", tag("addr:street")), part6),
+    get(regexp_match("^_____$", tag("addr:street")), part7),
+    get(regexp_match("^_____$", tag("addr:street")), part8)
+  );
+}
+
+*["addr:place"].pattern_addr_place {
+  throwWarning: tr(
+    "{0} — warning_message",
+    "{0.value}"
+  );
+  group: tr(
+    "group_name"
+  );
+  fixAdd: concat(
+    "addr:place=",
+    get(regexp_match("^_____$", tag("addr:place")), part1),
+    get(regexp_match("^_____$", tag("addr:place")), part2),
+    get(regexp_match("^_____$", tag("addr:place")), part3),
+    get(regexp_match("^_____$", tag("addr:place")), part4),
+    get(regexp_match("^_____$", tag("addr:place")), part5),
+    get(regexp_match("^_____$", tag("addr:place")), part6),
+    get(regexp_match("^_____$", tag("addr:place")), part7),
+    get(regexp_match("^_____$", tag("addr:place")), part8)
+  );
+}
