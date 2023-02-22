@@ -3442,3 +3442,30 @@ relation[type="associatedStreet"][alt_name:uk].number_000_alt_name_uk {
     get(regexp_match("(?muUi)^(?<peredni>[0-9]*(?=[0-9]{3}[-]))?(?<sotni>0)(?<desiatky>0)(?<odynytsi>0(?![-]на))(?<narost>[-](?:а|чна|нна| а)(?= ))(?<space1> )(?<stuff>[0123456789абвгґдеєжзиіїйклмнопрстуфхцчшщьюя [-][.]’'ʼ]*)?(?<type>алея|вулиця|дорога|лінія|набережна|просіка|площа|дача|гавань|станція)(?<stuff2>[0123456789абвгґдеєжзиіїйклмнопрстуфхцчшщьюя [-][.]’'ʼ]*)?$", tag("addr:place")), 9)
   );
 }
+
+/* Номери будинків що починаються з цифер, мають необовʼязковий пропуск та закінчуються однією літерою */
+
+*[addr:housenumber =~ /(?muUi)^(?<number>[0-9]+)(?<space> )?(?<letter>[абвгґдеєжзиіїйклмнопрстуфхцчшщьюя])$/][inside("UA")] {
+  set .housenumber;
+}
+
+*[addr:housenumber].housenumber {
+    throwWarning: concat(
+        get(regexp_match("(?muUi)^(?<number>[0-9]+)(?<space> )?(?<letter>[абвгґдеєжзиіїйклмнопрстуфхцчшщьюя])$", tag("addr:housenumber")), 1),
+        get(regexp_match("(?muUi)^(?<number>[0-9]+)(?<space> )?(?<letter>[абвгґдеєжзиіїйклмнопрстуфхцчшщьюя])$", tag("addr:housenumber")), 2),
+        get(regexp_match("(?muUi)^(?<number>[0-9]+)(?<space> )?(?<letter>[абвгґдеєжзиіїйклмнопрстуфхцчшщьюя])$", tag("addr:housenumber")), 3),
+        " → ",
+        get(regexp_match("(?muUi)^(?<number>[0-9]+)(?<space> )?(?<letter>[абвгґдеєжзиіїйклмнопрстуфхцчшщьюя])$", tag("addr:housenumber")), 1),
+        "-",
+        upper(get(regexp_match("(?muUi)^(?<number>[0-9]+)(?<space> )?(?<letter>[абвгґдеєжзиіїйклмнопрстуфхцчшщьюя])$", tag("addr:housenumber")), 3))
+      );
+  group: tr(
+    "Рекомендований дефіс і велика літера"
+  );
+  fixAdd: concat(
+    "addr:housenumber=",
+    get(regexp_match("(?muUi)^(?<number>[0-9]+)(?<space> )?(?<letter>[абвгґдеєжзиіїйклмнопрстуфхцчшщьюя])$", tag("addr:housenumber")), 1),
+    "-",
+    upper(get(regexp_match("(?muUi)^(?<number>[0-9]+)(?<space> )?(?<letter>[абвгґдеєжзиіїйклмнопрстуфхцчшщьюя])$", tag("addr:housenumber")), 3))
+  );
+}
