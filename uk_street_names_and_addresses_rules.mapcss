@@ -1,7 +1,7 @@
 meta
 {
     title: "Ukrainian Streets and Addresses";
-    version: "0.4_2023-02-19";
+    version: "0.41_2023-02-19";
     description: "Validation of street names and addresses in Ukraine.";
     author: "darkonus";
     icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCI+DQo8cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI4MDAiIGZpbGw9IiMwMDVCQkIiLz4NCjxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjQwMCIgeT0iNDAwIiBmaWxsPSIjRkZENTAwIi8+DQo8L3N2Zz4=";
