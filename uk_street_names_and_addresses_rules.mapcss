@@ -1,7 +1,7 @@
 meta
 {
     title: "Ukrainian Streets and Addresses";
-    version: "0.42_2023-02-22";
+    version: "0.43_2023-02-26";
     description: "Validation of street names and addresses in Ukraine.";
     author: "darkonus";
     icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCI+DQo8cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI4MDAiIGZpbGw9IiMwMDVCQkIiLz4NCjxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjQwMCIgeT0iNDAwIiBmaWxsPSIjRkZENTAwIi8+DQo8L3N2Zz4=";
@@ -10,7 +10,7 @@ meta
 }
 meta[lang=uk] {
     title: "Українські вулиці та адреси";
-    description: "Перевірка й коригування назв вулиць та адрес в Україні. Приклади виправлень: 1-ий → 1-й, 30-ий → 3-й, але 2-а → 2-га, 3-я → 3-тя, 1000-а → 1000-на; Шевченка вулиця → вулиця Шевченка, 1-ша Лесі Українки лінія → 1-ша лінія Лесі Українки, але без змін Польова вулиця, Тупиковий завулок; вyлuця Komoвcьkоro (латиниця в назві) → вулиця Котовського (кирилиця в назві); addr:housenumber — 12а, 12 а, 12 А → 12-А";
+    description: "Перевірка й коригування назв вулиць та адрес в Україні. Приклади виправлень: 1-ий → 1-й, 30-ий → 3-й, але 2-а → 2-га, 3-я → 3-тя, 1000-а → 1000-на; Шевченка вулиця → вулиця Шевченка, 1-ша Лесі Українки лінія → 1-ша лінія Лесі Українки, але без змін Польова вулиця, Тупиковий завулок; вyлuця Komoвcьkоro (латиниця в назві вулиці чи у номері будинку) → вулиця Котовського (кирилиця в назві чи у номері будинку); addr:housenumber — 12а, 12 а, 12 А → 12-А";
 }
 
 /* Переставляє слова у природному порядку, замінює різні апострофи на «ʼ» */
@@ -240,6 +240,10 @@ relation[type="associatedStreet"][alt_name:uk].base_alt_name_uk {
   set .latin_addr_place;
 }
 
+*[addr:housenumber =~ /(?muU)^(.*[aABcCeEHikKmMoOpPrTuxy].*)$/][inside("UA")] {
+  set .latin_addr_housenumber;
+}
+
 
 way[highway][name].latin_name,
 relation[type="associatedStreet"][name].latin_name {
@@ -333,6 +337,17 @@ relation[type="associatedStreet"][alt_name:uk].latin_alt_name_uk {
     "Можливі описки"
   );
   fixAdd: concat("addr:place=", replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(get(regexp_match("(?muU)^(.*[aABcCeEHikKmMoOpPrTuxy].*)$", tag("name")), 1), "a", "а"), "A", "А"), "B", "В"), "c", "с"), "C", "С"), "e", "е"), "E", "Е"), "H", "Н"), "i", "і"), "k", "к"), "K", "К"), "m", "т"), "M", "М"), "o", "о"), "O", "О"), "p", "р"), "P", "Р"), "r", "г"), "T", "Т"), "u", "и"), "x", "х"), "y", "у"), "’", "ʼ"), "'", "ʼ"));
+}
+
+*["addr:housenumber"].latin_addr_housenumber {
+  throwWarning: tr(
+    "номер будинку «{0}» містить латиницю",
+    "{0.value}"
+  );
+  group: tr(
+    "Можливі описки"
+  );
+  fixAdd: concat("addr:housenumber=", replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(get(regexp_match("(?muU)^(.*[aABcCeEHikKmMoOpPrTuxy].*)$", tag("addr:housenumber")), 1), "a", "а"), "A", "А"), "B", "В"), "c", "с"), "C", "С"), "e", "е"), "E", "Е"), "H", "Н"), "i", "і"), "k", "к"), "K", "К"), "m", "т"), "M", "М"), "o", "о"), "O", "О"), "p", "р"), "P", "Р"), "r", "г"), "T", "Т"), "u", "и"), "x", "х"), "y", "у"), "’", "ʼ"), "'", "ʼ"));
 }
 
 /* Нарощення порядкових числівників чоловічого роду однини -й */
