@@ -1,8 +1,8 @@
 meta
 {
     title: "Ukrainian Streets and Addresses";
-    version: "0.45_2023-03-02";
-    description: "Validation of street names and addresses in Ukraine.";
+    version: "0.46_2023-03-06";
+    description: "Validation of street names and addresses in Ukraine";
     author: "darkonus";
     icon: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCI+DQo8cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI4MDAiIGZpbGw9IiMwMDVCQkIiLz4NCjxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjQwMCIgeT0iNDAwIiBmaWxsPSIjRkZENTAwIi8+DQo8L3N2Zz4=";
     min-josm-version: "11424"; /* due to territory selectors */
@@ -266,7 +266,7 @@ relation[type="associatedStreet"][name:uk].latin_name_uk {
   group: tr(
     "Можливі описки"
   );
-  fixAdd: concat("name:uk=", replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(get(regexp_match("(?muU)^(.*[aABcCeEHikKmMoOpPrTuxy].*)$", tag("name")), 1), "a", "а"), "A", "А"), "B", "В"), "c", "с"), "C", "С"), "e", "е"), "E", "Е"), "H", "Н"), "i", "і"), "k", "к"), "K", "К"), "m", "т"), "M", "М"), "o", "о"), "O", "О"), "p", "р"), "P", "Р"), "r", "г"), "T", "Т"), "u", "и"), "x", "х"), "y", "у"), "’", "ʼ"), "'", "ʼ"));
+  fixAdd: concat("name:uk=", replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(get(regexp_match("(?muU)^(.*[aABcCeEHikKmMoOpPrTuxy].*)$", tag("name:uk")), 1), "a", "а"), "A", "А"), "B", "В"), "c", "с"), "C", "С"), "e", "е"), "E", "Е"), "H", "Н"), "i", "і"), "k", "к"), "K", "К"), "m", "т"), "M", "М"), "o", "о"), "O", "О"), "p", "р"), "P", "Р"), "r", "г"), "T", "Т"), "u", "и"), "x", "х"), "y", "у"), "’", "ʼ"), "'", "ʼ"));
 }
 
 way[highway][old_name].latin_old_name,
@@ -278,7 +278,7 @@ relation[type="associatedStreet"][old_name].latin_old_name {
   group: tr(
     "Можливі описки"
   );
-  fixAdd: concat("old_name=", replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(get(regexp_match("(?muU)^(.*[aABcCeEHikKmMoOpPrTuxy].*)$", tag("name")), 1), "a", "а"), "A", "А"), "B", "В"), "c", "с"), "C", "С"), "e", "е"), "E", "Е"), "H", "Н"), "i", "і"), "k", "к"), "K", "К"), "m", "т"), "M", "М"), "o", "о"), "O", "О"), "p", "р"), "P", "Р"), "r", "г"), "T", "Т"), "u", "и"), "x", "х"), "y", "у"), "’", "ʼ"), "'", "ʼ"));
+  fixAdd: concat("old_name=", replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(get(regexp_match("(?muU)^(.*[aABcCeEHikKmMoOpPrTuxy].*)$", tag("old_name")), 1), "a", "а"), "A", "А"), "B", "В"), "c", "с"), "C", "С"), "e", "е"), "E", "Е"), "H", "Н"), "i", "і"), "k", "к"), "K", "К"), "m", "т"), "M", "М"), "o", "о"), "O", "О"), "p", "р"), "P", "Р"), "r", "г"), "T", "Т"), "u", "и"), "x", "х"), "y", "у"), "’", "ʼ"), "'", "ʼ"));
 }
 
 way[highway][old_name:uk].latin_old_name_uk,
@@ -290,7 +290,7 @@ relation[type="associatedStreet"][old_name:uk].latin_old_name_uk {
   group: tr(
     "Можливі описки"
   );
-  fixAdd: concat("old_name:uk=", replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(get(regexp_match("(?muU)^(.*[aABcCeEHikKmMoOpPrTuxy].*)$", tag("name")), 1), "a", "а"), "A", "А"), "B", "В"), "c", "с"), "C", "С"), "e", "е"), "E", "Е"), "H", "Н"), "i", "і"), "k", "к"), "K", "К"), "m", "т"), "M", "М"), "o", "о"), "O", "О"), "p", "р"), "P", "Р"), "r", "г"), "T", "Т"), "u", "и"), "x", "х"), "y", "у"), "’", "ʼ"), "'", "ʼ"));
+  fixAdd: concat("old_name:uk=", replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(get(regexp_match("(?muU)^(.*[aABcCeEHikKmMoOpPrTuxy].*)$", tag("old_name:uk")), 1), "a", "а"), "A", "А"), "B", "В"), "c", "с"), "C", "С"), "e", "е"), "E", "Е"), "H", "Н"), "i", "і"), "k", "к"), "K", "К"), "m", "т"), "M", "М"), "o", "о"), "O", "О"), "p", "р"), "P", "Р"), "r", "г"), "T", "Т"), "u", "и"), "x", "х"), "y", "у"), "’", "ʼ"), "'", "ʼ"));
 }
 
 way[highway][alt_name].latin_alt_name,
@@ -302,7 +302,7 @@ relation[type="associatedStreet"][alt_name].latin_alt_name {
   group: tr(
     "Можливі описки"
   );
-  fixAdd: concat("alt_name=", replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(get(regexp_match("(?muU)^(.*[aABcCeEHikKmMoOpPrTuxy].*)$", tag("name")), 1), "a", "а"), "A", "А"), "B", "В"), "c", "с"), "C", "С"), "e", "е"), "E", "Е"), "H", "Н"), "i", "і"), "k", "к"), "K", "К"), "m", "т"), "M", "М"), "o", "о"), "O", "О"), "p", "р"), "P", "Р"), "r", "г"), "T", "Т"), "u", "и"), "x", "х"), "y", "у"), "’", "ʼ"), "'", "ʼ"));
+  fixAdd: concat("alt_name=", replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(get(regexp_match("(?muU)^(.*[aABcCeEHikKmMoOpPrTuxy].*)$", tag("alt_name")), 1), "a", "а"), "A", "А"), "B", "В"), "c", "с"), "C", "С"), "e", "е"), "E", "Е"), "H", "Н"), "i", "і"), "k", "к"), "K", "К"), "m", "т"), "M", "М"), "o", "о"), "O", "О"), "p", "р"), "P", "Р"), "r", "г"), "T", "Т"), "u", "и"), "x", "х"), "y", "у"), "’", "ʼ"), "'", "ʼ"));
 }
 
 way[highway][alt_name:uk].latin_alt_name_uk,
@@ -314,7 +314,7 @@ relation[type="associatedStreet"][alt_name:uk].latin_alt_name_uk {
   group: tr(
     "Можливі описки"
   );
-  fixAdd: concat("alt_name:uk=", replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(get(regexp_match("(?muU)^(.*[aABcCeEHikKmMoOpPrTuxy].*)$", tag("name")), 1), "a", "а"), "A", "А"), "B", "В"), "c", "с"), "C", "С"), "e", "е"), "E", "Е"), "H", "Н"), "i", "і"), "k", "к"), "K", "К"), "m", "т"), "M", "М"), "o", "о"), "O", "О"), "p", "р"), "P", "Р"), "r", "г"), "T", "Т"), "u", "и"), "x", "х"), "y", "у"), "’", "ʼ"), "'", "ʼ"));
+  fixAdd: concat("alt_name:uk=", replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(get(regexp_match("(?muU)^(.*[aABcCeEHikKmMoOpPrTuxy].*)$", tag("alt_name:uk")), 1), "a", "а"), "A", "А"), "B", "В"), "c", "с"), "C", "С"), "e", "е"), "E", "Е"), "H", "Н"), "i", "і"), "k", "к"), "K", "К"), "m", "т"), "M", "М"), "o", "о"), "O", "О"), "p", "р"), "P", "Р"), "r", "г"), "T", "Т"), "u", "и"), "x", "х"), "y", "у"), "’", "ʼ"), "'", "ʼ"));
 }
 
 *["addr:street"].latin_addr_street {
@@ -325,7 +325,7 @@ relation[type="associatedStreet"][alt_name:uk].latin_alt_name_uk {
   group: tr(
     "Можливі описки"
   );
-  fixAdd: concat("addr:street=", replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(get(regexp_match("(?muU)^(.*[aABcCeEHikKmMoOpPrTuxy].*)$", tag("name")), 1), "a", "а"), "A", "А"), "B", "В"), "c", "с"), "C", "С"), "e", "е"), "E", "Е"), "H", "Н"), "i", "і"), "k", "к"), "K", "К"), "m", "т"), "M", "М"), "o", "о"), "O", "О"), "p", "р"), "P", "Р"), "r", "г"), "T", "Т"), "u", "и"), "x", "х"), "y", "у"), "’", "ʼ"), "'", "ʼ"));
+  fixAdd: concat("addr:street=", replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(get(regexp_match("(?muU)^(.*[aABcCeEHikKmMoOpPrTuxy].*)$", tag("addr:street")), 1), "a", "а"), "A", "А"), "B", "В"), "c", "с"), "C", "С"), "e", "е"), "E", "Е"), "H", "Н"), "i", "і"), "k", "к"), "K", "К"), "m", "т"), "M", "М"), "o", "о"), "O", "О"), "p", "р"), "P", "Р"), "r", "г"), "T", "Т"), "u", "и"), "x", "х"), "y", "у"), "’", "ʼ"), "'", "ʼ"));
 }
 
 *["addr:place"].latin_addr_place {
@@ -336,7 +336,7 @@ relation[type="associatedStreet"][alt_name:uk].latin_alt_name_uk {
   group: tr(
     "Можливі описки"
   );
-  fixAdd: concat("addr:place=", replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(get(regexp_match("(?muU)^(.*[aABcCeEHikKmMoOpPrTuxy].*)$", tag("name")), 1), "a", "а"), "A", "А"), "B", "В"), "c", "с"), "C", "С"), "e", "е"), "E", "Е"), "H", "Н"), "i", "і"), "k", "к"), "K", "К"), "m", "т"), "M", "М"), "o", "о"), "O", "О"), "p", "р"), "P", "Р"), "r", "г"), "T", "Т"), "u", "и"), "x", "х"), "y", "у"), "’", "ʼ"), "'", "ʼ"));
+  fixAdd: concat("addr:place=", replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(get(regexp_match("(?muU)^(.*[aABcCeEHikKmMoOpPrTuxy].*)$", tag("addr:place")), 1), "a", "а"), "A", "А"), "B", "В"), "c", "с"), "C", "С"), "e", "е"), "E", "Е"), "H", "Н"), "i", "і"), "k", "к"), "K", "К"), "m", "т"), "M", "М"), "o", "о"), "O", "О"), "p", "р"), "P", "Р"), "r", "г"), "T", "Т"), "u", "и"), "x", "х"), "y", "у"), "’", "ʼ"), "'", "ʼ"));
 }
 
 *["addr:housenumber"].latin_addr_housenumber {
